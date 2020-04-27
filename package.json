@@ -9,6 +9,7 @@
     "url": "https://github.com/eastslopestudio/eleventy-starter"
   },
   "scripts": {
+    "dev": "netlify dev",
     "clean": "run-s clean:*",
     "clean:cache": "rimraf ./.cache",
     "clean:site": "rimraf ./dist",
