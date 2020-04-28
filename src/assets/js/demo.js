@@ -612,9 +612,11 @@ class Slideshow {
 
     if (action === 'open') {
       contentItem.classList.add('content__item--current')
+      document.body.classList.add('overflow-hidden')
     }
     Promise.all(promises).then(() => {
       if (action === 'close') {
+        document.body.classList.remove('overflow-hidden')
         contentItem.classList.remove('content__item--current')
       }
       this.isAnimating = false

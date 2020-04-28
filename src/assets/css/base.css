@@ -267,8 +267,12 @@ a:focus {
   outline: none;
 }
 
-main {
-  position: relative;
+.hero {
+  position: fixed;
+  min-height: 100vh;
+  width: 100%;
+}
+.hero__screen {
   min-height: 100vh;
 }
 
@@ -593,7 +597,7 @@ main {
 
 @media screen and (min-width: 53em) {
   body {
-    overflow: hidden;
+    /* overflow: hidden; */
   }
   .frame {
     position: fixed;
@@ -725,4 +729,10 @@ main {
         21 21,
       pointer;
   }
+}
+.body {
+  background: var(--color-bg);
+  position: relative;
+  min-height: 100vh;
+  padding: 2rem;
 }
