@@ -13,6 +13,14 @@ title: Welcome
   </div>
   <div class="hero__screen"></div>
   <div class="body">
-    <h2>hello</h2>
+    <ul>
+      {% for prj in collections.projects %}
+      <li>
+        <a href="projects/{{ prj.uid }}">
+          {{ prj.data.project_name[0].text }}
+        </a>
+      </li>
+      {% endfor %}
+    </ul>
   </div>
 </main>

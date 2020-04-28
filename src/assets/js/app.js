@@ -1,5 +1,5 @@
 // import { Application } from 'stimulus'
-import Turbolinks from 'turbolinks'
+// import Turbolinks from 'turbolinks'
 
 import './api'
 
@@ -10,4 +10,4 @@ import './api'
 // const application = Application.start()
 // application.register('hello', HelloController)
 
-Turbolinks.start()
+// Turbolinks.start()

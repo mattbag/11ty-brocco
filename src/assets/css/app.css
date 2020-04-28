@@ -5,3 +5,14 @@
 @tailwind utilities;
 
 @import './base.css';
+
+body:not(.loading) {
+  animation: body_load 1s 0ms ease-in forwards;
+  opacity: 0;
+}
+
+@keyframes body_load {
+  to {
+    opacity: 1;
+  }
+}

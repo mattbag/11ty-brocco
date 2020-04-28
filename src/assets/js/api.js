@@ -6,6 +6,8 @@ var Prismic = require('prismic-javascript')
 
 var apiEndpoint = 'https://broccolou.cdn.prismic.io/api/v2'
 // var apiToken = 'MC5XVHFod1NrQUFDWUE0RVFw...e-_vX5dYu-_vQnvv70'
+document.documentElement.classList.remove('no-js')
+document.documentElement.classList.add('js')
 
 Prismic.getApi(apiEndpoint)
   .then(function(api) {
@@ -14,8 +16,8 @@ Prismic.getApi(apiEndpoint)
   .then(
     function(response) {
       console.log('Documents: ', response.results)
-      const proj = response.results.slice(0, 4)
-      let _html = proj
+      const proj = response.results //.slice(0, 5)
+      let _grid = proj
         .map(
           (prj, i) => `
         <figure class="grid__item grid__item--slide">
@@ -78,10 +80,12 @@ Prismic.getApi(apiEndpoint)
         .join(' ')
       //
       document.querySelector('#projects').innerHTML =
-        _html + titles + interactions
+        _grid + titles + interactions
 
       //
       initLayout()
+
+      //   document.body.classList.remove('loading')
     },
     function(err) {
       console.log('Something went wrong: ', err)

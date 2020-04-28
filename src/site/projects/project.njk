@@ -1,0 +1,10 @@
+---
+pagination:
+  data: collections.projects
+  size: 1
+  alias: project
+  addAllPagesToCollections: true
+permalink: 'projects/{{ project.uid }}/index.html'
+---
+
+{{ project.uid | safe if project.uid else "project content not found" }}

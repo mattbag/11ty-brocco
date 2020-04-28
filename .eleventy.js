@@ -1,5 +1,9 @@
 const fs = require('fs')
 
+var Prismic = require('prismic-javascript')
+
+var apiEndpoint = 'https://broccolou.cdn.prismic.io/api/v2'
+
 module.exports = function(eleventyConfig) {
   /**
    * Opts in to a full deep merge when combining the Data Cascade.
@@ -67,10 +71,38 @@ module.exports = function(eleventyConfig) {
     },
   })
 
+  // Get all projects
+  eleventyConfig.addCollection('projects', async function(collection) {
+    return Prismic.getApi(apiEndpoint)
+      .then(function(api) {
+        return api.query([Prismic.Predicates.at('document.type', 'project')]) // An empty query will return all the documents
+      })
+      .then(res => res.results)
+    // collection = await api.posts
+    //   .browse({
+    //     include: "tags,authors",
+    //     limit: "all"
+    //   })
+    //   .catch(err => {
+    //     console.error(err);
+    //   });
+    // collection.forEach(post => {
+    //   post.url = stripDomain(post.url);
+    //   post.primary_author.url = stripDomain(post.primary_author.url);
+    //   post.tags.map(tag => (tag.url = stripDomain(tag.url)));
+    //   // Convert publish date into a Date object
+    //   post.published_at = new Date(post.published_at);
+    // });
+    // // Bring featured post to the top of the list
+    // collection.sort((post, nextPost) => nextPost.featured - post.featured);
+    // return collection;
+  })
+
   return {
     dir: {
       layouts: '_layouts',
       input: 'src/site',
+      data: '_data',
       output: 'dist',
     },
     passthroughFileCopy: true,
