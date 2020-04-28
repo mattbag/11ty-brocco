@@ -1,9 +1,14 @@
 // import { Application } from 'stimulus'
 // import Turbolinks from 'turbolinks'
 
-import './api'
+// import './api'
 
-// import './demo'
+import { initLayout } from './demo'
+
+document.addEventListener('DOMContentLoaded', function() {
+  // Handler when the DOM is fully loaded
+  initLayout()
+})
 
 // import HelloController from './controllers/hello_controller'
 

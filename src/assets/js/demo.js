@@ -639,10 +639,6 @@ class Revealer {
 const revealer = new Revealer(document.querySelector('.revealer__inner'))
 
 function initLayout(params) {
-  console.log('====')
-  console.log('initLayout')
-  console.log('====')
-
   // Revealer element
   // Initialize the slideshow
   new Slideshow(document.querySelector('.grid--slideshow'))
@@ -652,18 +648,19 @@ function initLayout(params) {
     console.log('====')
     console.log('imagesLoaded')
     console.log('====')
+
+    document.body.classList.remove('loading')
   })
-  ;[...document.querySelectorAll('.frame__mode input[type="radio"]')].forEach(
-    radio =>
-      radio.addEventListener('click', () => {
-        document.body.classList[
-          radio.parentNode.classList.contains('frame__mode-item--dark')
-            ? 'add'
-            : 'remove'
-        ]('dark-mode')
-      })
-  )
-  document.body.classList.remove('loading')
+  // [...document.querySelectorAll('.frame__mode input[type="radio"]')].forEach(
+  //   radio =>
+  //     radio.addEventListener('click', () => {
+  //       document.body.classList[
+  //         radio.parentNode.classList.contains('frame__mode-item--dark')
+  //           ? 'add'
+  //           : 'remove'
+  //       ]('dark-mode')
+  //     })
+  // )
 }
 
 export { initLayout }

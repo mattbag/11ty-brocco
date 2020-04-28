@@ -77,7 +77,13 @@ module.exports = function(eleventyConfig) {
       .then(function(api) {
         return api.query([Prismic.Predicates.at('document.type', 'project')]) // An empty query will return all the documents
       })
-      .then(res => res.results)
+      .then((
+        res //res.results
+      ) =>
+        res.results.map(p => {
+          return { title: p.data.project_name[0].text, ...p }
+        })
+      )
     // collection = await api.posts
     //   .browse({
     //     include: "tags,authors",

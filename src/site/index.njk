@@ -5,11 +5,65 @@ title: Welcome
 
 <main>
   <div class="hero">
-    <div class="content" id="projects_content"></div>
+    <div class="content" id="projects_content">
+      {% for prj in collections.projects %}
+      <article class="content__item">
+        <div class="img-wrap img-wrap--content">
+          <div
+            class="img img--content"
+            style="background-image: url({{ prj.data.project_image.url }});"
+          ></div>
+        </div>
+        <header class="content__item-header">
+          <span class="content__item-header-meta">{{ prj.title }}</span>
+          <h2 class="content__item-header-title">
+            {{ prj.data.project_short[0].text or "EMPTY" }}
+          </h2>
+        </header>
+        <div class="content__item-copy">
+          <p class="content__item-copy-text">
+            {{ prj.data.project_copy[0].text or "EMPTY" }}
+          </p>
+          <a href="/projects/{{ prj.uid }}" class="content__item-copy-more"
+            >more +</a
+          >
+        </div>
+      </article>
+      {% endfor %}
+    </div>
     <div class="revealer">
       <div class="revealer__inner"></div>
     </div>
-    <div class="grid grid--slideshow" id="projects"></div>
+    <div class="grid grid--slideshow" id="projects">
+      {% for prj in collections.projects %}
+      <figure class="grid__item grid__item--slide">
+        <span class="number">0{{ loop.index }}</span>
+        <div class="img-wrap">
+          <div
+            class="img"
+            style="background-image: url({{ prj.data.project_image.url }}"
+          ></div>
+        </div>
+        <figcaption class="caption">{{ prj.title }}</figcaption>
+      </figure>
+      {% endfor %}
+
+      <!--  -->
+      <div class="titles-wrap">
+        <div class="grid grid--titles">
+          {% for prj in collections.projects %}
+          <h3 class="grid__item grid__item--title">
+            {{ prj.data.project_short[0].text or "EMPTY" }}
+          </h3>
+          {% endfor %}
+        </div>
+      </div>
+      <div class="grid grid--interaction">
+        <div class="grid__item grid__item--cursor grid__item--left"></div>
+        <div class="grid__item grid__item--cursor grid__item--center"></div>
+        <div class="grid__item grid__item--cursor grid__item--right"></div>
+      </div>
+    </div>
   </div>
   <div class="hero__screen"></div>
   <div class="body">
