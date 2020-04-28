@@ -66,8 +66,10 @@ Prismic.getApi(apiEndpoint)
                 <span class="content__item-header-meta">${
                   prj.data.project_name[0].text
                 }</span>
-                <h2 class="content__item-header-title">${prj.data
-                  .project_short || 'Empty'}</h2>
+                <h2 class="content__item-header-title">${(prj.data
+                  .project_short[0] &&
+                  prj.data.project_short[0].text) ||
+                  'Empty'}</h2>
                 </header>
                 <div class="content__item-copy">
                 <div class="content__item-copy-text">

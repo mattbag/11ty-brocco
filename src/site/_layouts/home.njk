@@ -9,15 +9,9 @@
     <script src="/assets/js/app.js" defer></script>
   </head>
   <body class="loading">
-    <nav class="fixed top-0 z-10 p-1 bg-white">
-      nav
-    </nav>
+    {% include "partials/nav.njk" %}
+    <!-- <div class="py-4"></div> -->
     {{ content | safe }}
-
-    <footer class="footer bg-black text-white text-center relative p-2">
-      <span class="uppercase">
-        Made by Matt
-      </span>
-    </footer>
+    {% include "partials/footer.njk" %}
   </body>
 </html>
