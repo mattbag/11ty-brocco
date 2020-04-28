@@ -38,7 +38,7 @@ Prismic.getApi(apiEndpoint)
         ${proj.map(
           prj =>
             `<h3 class="grid__item grid__item--title">${prj.project_short ||
-              'empty'}</h3>`
+              'EMPTY'}</h3>`
         )}
       </div>
     </div>`
@@ -49,8 +49,38 @@ Prismic.getApi(apiEndpoint)
       <div class="grid__item grid__item--cursor grid__item--right"></div>
     </div>`
 
+      document.querySelector('#projects_content').innerHTML = proj
+        .map(
+          prj => `<article class="content__item">
+                <div class="img-wrap img-wrap--content">
+                <div
+                    class="img img--content"
+                    style="background-image: url(${
+                      prj.data.project_image.url
+                    });"
+                ></div>
+                </div>
+                <header class="content__item-header">
+                <span class="content__item-header-meta">${
+                  prj.data.project_name[0].text
+                }</span>
+                <h2 class="content__item-header-title">${prj.data
+                  .project_short || 'Empty'}</h2>
+                </header>
+                <div class="content__item-copy">
+                <div class="content__item-copy-text">
+                ${prj.data.project_copy.map(c => `<p>${c.text}</p>`)}
+                </div>
+                <a href="#" class="content__item-copy-more">Link +</a>
+                </div>
+                </article>`
+        )
+        .join(' ')
+      //
       document.querySelector('#projects').innerHTML =
         _html + titles + interactions
+
+      //
       initLayout()
     },
     function(err) {
