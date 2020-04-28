@@ -645,9 +645,9 @@ function initLayout(params) {
 
   // Preload all the images in the page
   imagesLoaded(document.querySelectorAll('.img'), { background: true }, () => {
-    console.log('====')
-    console.log('imagesLoaded')
-    console.log('====')
+    // console.log('====')
+    // console.log('imagesLoaded')
+    // console.log('====')
 
     document.body.classList.remove('loading')
   })

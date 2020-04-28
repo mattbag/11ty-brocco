@@ -195,7 +195,7 @@ body {
   --color-link-hover: #000;
   --color-number: #000;
   --color-title: #000;
-  --color-caption: #000;
+  --color-caption: var(--color-link);
   --color-content: #000;
   --color-content-bg: var(--color-bg);
   --color-reveal-bg: var(--color-bg);
@@ -214,8 +214,8 @@ body {
   --color-link-hover: #fff;
   --color-number: #484848;
   --color-title: #bb3a3a;
-  --color-caption: #484848;
   --color-content: #dadada;
+  --color-caption: var(--color-content);
   --color-content-title: #bb3a3a;
   --color-content-meta: #fff;
 }
