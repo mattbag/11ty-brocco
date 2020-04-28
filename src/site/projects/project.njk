@@ -7,8 +7,24 @@ pagination:
 permalink: 'projects/{{ project.uid }}/index.html'
 ---
 
-{% set title = project.title %}
-<h1>
-  {{ title }}
-</h1>
-{{ project.uid | safe if project.uid else "project content not found" }}
+<main>
+  <div>
+    <h1>
+      {{ project.title }}
+    </h1>
+    <div class="my-12 max-w-xl mx-auto">
+      {% for img in project.data.gallery %}
+
+      <div class="text-center">
+        <img
+          class="mb-20"
+          src="{{ img.gallery_image.url }}"
+          alt="{{ img.gallery_image.alt }}"
+          width="{{ img.gallery_image.dimensions.width }}"
+          height="{{ img.gallery_image.dimensions.height }}"
+        />
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</main>
