@@ -1,6 +1,6 @@
 const fs = require('fs')
 
-module.exports = function (eleventyConfig) {
+module.exports = function(eleventyConfig) {
   /**
    * Opts in to a full deep merge when combining the Data Cascade.
    *
@@ -21,6 +21,7 @@ module.exports = function (eleventyConfig) {
    * @link https://www.11ty.io/docs/copy/
    */
   eleventyConfig.addPassthroughCopy('./src/site/favicon.ico')
+  // eleventyConfig.addPassthroughCopy('./img')
 
   /**
    * Add filters
@@ -47,14 +48,14 @@ module.exports = function (eleventyConfig) {
     snippetOptions: {
       rule: {
         match: /<\/head>/i,
-        fn: function (snippet, match) {
+        fn: function(snippet, match) {
           return snippet + match
         },
       },
     },
     // Set local server 404 fallback
     callbacks: {
-      ready: function (err, browserSync) {
+      ready: function(err, browserSync) {
         const content_404 = fs.readFileSync('dist/404/index.html')
 
         browserSync.addMiddleware('*', (req, res) => {
