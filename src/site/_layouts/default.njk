@@ -1,17 +1,17 @@
 <!DOCTYPE html>
 <html lang="en" class="no-js">
   <head>
+    <meta name="turbolinks-cache-control" content="no-cache" />
     <meta charset="UTF-8" />
     <meta name="viewport" content="initial-scale=1, viewport-fit=cover" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>
-      {{ project.title or title or 'Broccolou' }} - {{ site.title }}
-    </title>
+    <title>{{ title or 'Eleventy Starter' }} - {{ site.title }}</title>
     <link rel="stylesheet" href="/assets/css/app.css" />
+    <script src="/assets/js/app.js" defer></script>
   </head>
   <body class="loading dark-mode">
     {% include "partials/nav.njk" %}
-    <div class="py-4"></div>
+    <!-- <div class="py-4"></div> -->
     {{ content | safe }}
     {% include "partials/footer.njk" %}
   </body>

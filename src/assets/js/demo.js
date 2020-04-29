@@ -379,6 +379,7 @@ class Slide {
 
 class Slideshow {
   constructor(el) {
+    if (!el) return
     this.DOM = { el: el }
     // The titles
     this.DOM.titlesWrap = this.DOM.el.querySelector('.titles-wrap')
@@ -626,7 +627,9 @@ class Slideshow {
 
 class Revealer {
   constructor(el) {
+    if (!el) return
     this.DOM = { el: el }
+
     this.DOM.el.style.width = `calc(100vw * ${Math.cos(
       (8 * Math.PI) / 180
     )} + 100vh * ${Math.sin((8 * Math.PI) / 180)})`
