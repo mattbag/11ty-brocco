@@ -2,6 +2,7 @@
 // import Turbolinks from 'turbolinks'
 
 import './api'
+import './nav'
 
 import { initLayout } from './demo'
 

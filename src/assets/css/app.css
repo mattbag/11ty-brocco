@@ -5,6 +5,7 @@
 @tailwind utilities;
 
 @import './base.css';
+@import './nav.css';
 
 body:not(.loading) {
   animation: body_load 1s 0ms ease-in forwards;
