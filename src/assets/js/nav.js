@@ -1,27 +1,32 @@
 import TweenMax from './TweenMax.min'
 
 export default () => {
+  const $burger = document.querySelector('#hamburger')
   document.addEventListener(
     'click',
     function(event) {
-      // console.log('====')
-      // console.log(event.target, $burger)
-      // console.log('====')
+      //   console.log('====')
+      //   console.log(event.target)
+      //   console.log('====')
 
       if (event.target.matches('#hamburger.off')) {
+        // event.preventDefault()
         console.log('====')
         console.log('off')
         console.log('====')
         // Run your code to open a modal
-        event.target.classList.toggle('on')
-        event.target.classList.toggle('off')
+        $burger.classList.toggle('on')
+        $burger.classList.toggle('off')
         runmenu(true)
-      } else if (event.target.matches('#hamburger.on')) {
+      } else if (
+        event.target.matches('#hamburger.on') ||
+        event.target.matches('.js-menu-off')
+      ) {
         console.log('====')
         console.log('on')
         console.log('====')
-        event.target.classList.toggle('on')
-        event.target.classList.toggle('off')
+        $burger.classList.toggle('on')
+        $burger.classList.toggle('off')
         // Run your code to close a modal
         runmenu(false)
       }
